@@ -1,0 +1,29 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+import string
+
+# Complete the designerPdfViewer function below.
+def designerPdfViewer(h, word):
+    dic = dict(zip(string.ascii_lowercase,h))
+    print(dic)
+    max=0
+    for i in word:
+        val=dic[i]
+        if val>max:
+            max=val
+    return max*len(word)
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    h = list(map(int, input().rstrip().split()))
+
+    word = input()
+
+    result = designerPdfViewer(h, word)
