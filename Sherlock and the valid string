@@ -1,0 +1,32 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+
+# Complete the isValid function below.
+def isValid(s):
+    d=Counter(Counter(s).values())
+    if len(d)==1:
+        return 'YES'
+    if len(d)>2:
+        return 'NO'
+    if 1 in d.values() and (d[min(d.keys())]==1 or (max(d.keys()) - min(d.keys())==1)):
+        return 'YES'
+    else:
+        return 'NO'
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = isValid(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
