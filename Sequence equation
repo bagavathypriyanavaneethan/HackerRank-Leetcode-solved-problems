@@ -1,0 +1,42 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the permutationEquation function below.
+def permutationEquation(p):
+    order=sorted(p)
+    ind=[]
+    fin=[]
+    #a=1
+    for i in range(len(order)):
+        #ind=[j+1 for j in range(len(p)) if p[j]==i+1]
+        for j in range(len(p)):
+            if p[j]==i+1:
+                res=j+1
+                ind.append(res)
+    #print(ind)
+    for i in order:
+        a=ind[i-1]
+        b=ind[a-1]
+        fin.append(b)
+    return fin
+        
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    p = list(map(int, input().rstrip().split()))
+
+    result = permutationEquation(p)
+
+    fptr.write('\n'.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
