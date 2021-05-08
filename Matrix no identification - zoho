@@ -1,0 +1,31 @@
+import numpy as np
+
+a = [[1,0,1],[0,1,0],[0,0,1]]
+
+a = np.array(a)
+num = 0
+
+for i in range(0,a.shape[0]):
+    for j in range(0,a.shape[1]):
+        print(a[i][j],end=' ')
+    print('\n')
+    
+for i in range(0,a.shape[0]):
+    for j in range(0,a.shape[1]):
+        row =0 
+        col =0 
+        if a[i][j]==1:
+            for x in range(0,a.shape[0]):
+                if x!=i and a[x][j]==0:
+                    row+=1
+            for y in range(0,a.shape[1]):
+                if y!=j and a[i][y]==0:
+                    col+=1
+        #print(a[i][j],i,j,row,col)
+        if row==a.shape[0]-1 and col==a.shape[1]-1:
+            num=num+1
+        
+                    
+            '''if a[i-1][j]==0 & a[i+1][j]==0 & a[i][j-1]==0 & a[i][j+1]==0:
+                num+=1'''
+print(num)
