@@ -1,2 +1,2 @@
 # HackerRank
-Solutions of hackerrank problems
+Solutions of hackerrank and leetcode problems
