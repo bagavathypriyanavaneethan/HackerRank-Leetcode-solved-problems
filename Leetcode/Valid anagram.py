@@ -1,5 +1,9 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
+        
+        if len(s) != len(t):
+            return False
+        
         s_dic = {}
         #Creating dictionary for s and t string element as key and their no of               #occurence as value
         for i in s: 
@@ -15,12 +19,14 @@ class Solution:
             else: 
                 t_dic[i] +=1 
                 
-        #If the dictinaries don't have same size, then return False
-        if len(s_dic) != len(t_dic):
-            return False
+        for key,val in s_dic.items():
+            if key not in t_dic:
+                return False
+            if val != t_dic[key]:
+                return False 
+        return True
         
-        #If they are same size, proceeding
-        for i in s_dic.keys():
+        '''for i in s_dic.keys():
             #Checking element from s present in t also 
             if i not in t_dic : 
                 return False 
@@ -28,4 +34,4 @@ class Solution:
             #If that is present, checking the no of occurence
             elif s_dic[i] != t_dic[i]:
                 return False 
-        return True
+        return True'''
