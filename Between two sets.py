@@ -7,7 +7,8 @@ import re
 import sys
 
 #
-# Complete the 'getTotalX' function below.
+# Complete the 'getTotalX' functi
+on below.
 #
 # The function is expected to return an INTEGER.
 # The function accepts following parameters:
