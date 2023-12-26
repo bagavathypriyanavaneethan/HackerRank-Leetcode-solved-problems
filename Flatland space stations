@@ -1,0 +1,53 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the flatlandSpaceStations function below.
+def flatlandSpaceStations(n, c):
+    
+    c = sorted(c)
+    
+    # To take distance from 0 to first space station
+    result = c[0] 
+    
+    # To take distance between the in between space stations 
+    # c[i] - c[i-1]/2 to get the max distance between two space stations 
+    # 0 <=> 4 takes 2 unit distance as (0-> 2 or 2-> 4 takes 2 unit)
+    for i in range(1,len(c)):
+        result = max(result,(c[i]-c[i-1])//2)
+        
+    # To take the distance between the last space station and final element in n 
+    result = max(result,n - 1 - c[-1])
+    return round(result)
+    
+    '''
+    #One test case failed due to time out error
+    final = []
+    for i in range(n):
+        res = []
+        for j in c:
+            res.append(abs(i-j))
+        final.append(min(res))
+    return max(final)
+    '''
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    nm = input().split()
+
+    n = int(nm[0])
+
+    m = int(nm[1])
+
+    c = list(map(int, input().rstrip().split()))
+
+    result = flatlandSpaceStations(n, c)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
